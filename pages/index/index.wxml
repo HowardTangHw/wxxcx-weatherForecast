@@ -1,0 +1,50 @@
+<view class="content">
+  <!--显示当前天气-->
+  <view class="info">
+    <!--城市名称 当前日期-->
+    <view class="city">{{city}}更新时间:{{today}}</view>
+    <view class="temp">{{weather.wendu}}℃</view>
+    <view class="weater">{{weather.ganmao}}</view>
+  </view>
+
+  <!--昨天的天气信息-->
+  <view class="yesterday">
+    <view class="detail">
+      <text class="yesterday-title">详情</text>
+      {{weather.xx.date}}
+    </view>
+    <view class="detail">
+      {{weather.xx.type}}
+      <!--天气类型，如阴、晴-->
+      {{weather.xx.fx}}
+      <!--风向-->
+      {{weather.xx.fl}}
+      <!--湿度-->
+      {{weather.xx.sd}}
+      <!--风力-->
+      {{weather.xx.low}}
+      <!--最低温度-->
+      {{weather.xx.high}}
+      <!--最高温度-->
+    </view>
+  </view>
+  <view class="forecast">
+    <view class="next-day" wx:key="{{index}}" wx:for="{{weather.forecast}}">
+      <!--日期-->
+      <view class="detail date">{{item.date}}</view>
+      <!--天气类型-->
+      <view class="detail">白天:{{item.dayweather}}</view>
+      <!--最高温度-->
+      <view class="detail">白天:{{item.daytemp}}</view>
+      <!--最低温度-->
+      <view class="detail">夜晚:{{item.nightweather}}</view>
+      <!--风向-->
+      <view class="detail">夜晚:{{item.nighttemp}}</view>
+    </view>
+  </view>
+  <!--搜索-->
+  <view class="search-area">
+    <input bindinput="inputing" placeholder="请输入城市名称" value="{{inputCity}}" />
+    <button type="primary" size="mini" bindtap="bindSearch">查询</button>
+  </view>
+</view>
